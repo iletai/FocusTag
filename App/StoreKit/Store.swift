@@ -6,6 +6,8 @@ import SwiftUI
 enum Store {
     static let groupID = AppConfiguration.string("SUBSCRIPTION_GROUP_ID") ?? ""
     static let lifetimeID = "\(AppConfiguration.bundleIdentifier).pro.lifetime"
+    static let weeklyID = "\(AppConfiguration.bundleIdentifier).pro.weekly"
+    static let yearlyID = "\(AppConfiguration.bundleIdentifier).pro.yearly"
 
     /// For gates outside SwiftUI (widgets, background work). Views read `\.isPro` instead.
     static func hasPro() async -> Bool {

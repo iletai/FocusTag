@@ -32,6 +32,10 @@
 	<string>$(MICROCMS_SERVICE_DOMAIN)</string>
 	<key>SUBSCRIPTION_GROUP_ID</key>
 	<string>$(SUBSCRIPTION_GROUP_ID)</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>Scan your physical NFC tag to pair and unlock your shielded apps.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Detect phone shaking motion to enable emergency friction unlock.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UISupportedInterfaceOrientations</key>

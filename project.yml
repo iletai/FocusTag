@@ -80,6 +80,8 @@ targets:
         SUBSCRIPTION_GROUP_ID: $(SUBSCRIPTION_GROUP_ID)
         MICROCMS_API_KEY: $(MICROCMS_API_KEY)
         MICROCMS_SERVICE_DOMAIN: $(MICROCMS_SERVICE_DOMAIN)
+        NFCReaderUsageDescription: Scan your physical NFC tag to pair and unlock your shielded apps.
+        NSMotionUsageDescription: Detect phone shaking motion to enable emergency friction unlock.
 
   FocusTagTests:
     type: bundle.unit-test
