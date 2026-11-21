@@ -311,7 +311,7 @@ def draw_device_frame(img: Image.Image, device_config: dict, screenshot: Image.I
     # Center horizontally, position in lower portion
     x = (bg_w - new_w) // 2
     y = bg_h - new_h - int(bg_h * 0.04)  # 4% bottom padding
-    y = max(y, int(bg_h * 0.28))  # don't overlap title area
+    y = max(y, int(bg_h * 0.20))  # keep clear of the title block (ends ~12%); 0.28 clipped the device bottom
 
     # Soft drop shadow behind the device for depth separation
     if shadow:
