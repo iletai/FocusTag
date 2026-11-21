@@ -3,7 +3,8 @@ import CryptoKit
 import Foundation
 
 /// Reads the UID of a physical NFC tag and returns its SHA-256 hex digest.
-/// Only the hash is ever stored, so the raw UID never touches disk.
+/// Only the hash is stored, so the raw UID never touches disk. This is a convenience, not a secret:
+/// a UID is short and guessable, so the digest does not stop someone who can read or clone the tag.
 @MainActor
 final class NFCTagReader: NSObject {
     enum ReadError: Error {
@@ -30,6 +31,7 @@ final class NFCTagReader: NSObject {
     /// Presents the system NFC sheet; throws `ReadError` when nothing usable was scanned.
     func scan(prompt: String) async throws -> String {
         guard Self.isAvailable else { throw ReadError.unavailable }
+        guard continuation == nil else { throw ReadError.cancelled }   // a scan is already in flight
         return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
             let session = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693], delegate: self, queue: .main)

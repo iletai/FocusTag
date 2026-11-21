@@ -53,7 +53,7 @@ final class ShakeCounter {
     }
 
     private func handle(magnitude: Double) {
-        status = .running
+        if status != .running { status = .running }
         register(magnitude: magnitude, at: Date())
     }
 
