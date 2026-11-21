@@ -14,6 +14,15 @@ struct PaywallView: View {
         "paywall.feature.strict_mode", "paywall.feature.privacy"
     ]
 
+    /// Screenshot seed: the simulator test run has no StoreKit products, so plan cards show fixed prices.
+    private var isSeeded: Bool {
+        #if DEBUG
+        UITestSeed.isActive
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -78,6 +87,7 @@ struct PaywallView: View {
     }
 
     private var bannerKey: LocalizedStringKey? {
+        if isSeeded { return nil }
         if let key = model.errorKey { return key }
         switch model.phase {
         case .offline: return "paywall.error.offline"
@@ -105,6 +115,20 @@ struct PaywallView: View {
 
     @ViewBuilder
     private var plans: some View {
+        if isSeeded {
+            VStack(spacing: 12) {
+                PlanCard(isSelected: true, badge: "paywall.plan.annual.badge", title: "paywall.plan.annual.title",
+                         detail: String(ftKey: "paywall.plan.annual.desc", "$29.99", "$2.50")) {}
+                PlanCard(isSelected: false, badge: nil, title: "paywall.plan.weekly.title",
+                         detail: String(ftKey: "paywall.plan.weekly.desc", "$4.99")) {}
+            }
+        } else {
+            livePlans
+        }
+    }
+
+    @ViewBuilder
+    private var livePlans: some View {
         switch model.phase {
         case .loading:
             VStack(spacing: 12) {
@@ -145,12 +169,17 @@ struct PaywallView: View {
                 if model.isBusy {
                     ProgressView().tint(.black)
                 } else {
-                    Text(LocalizedStringKey(model.showsTrialCTA ? "paywall.cta.subscribe" : "paywall.cta.subscribe_plain"))
+                    Text(LocalizedStringKey(model.showsTrialCTA || isSeeded ? "paywall.cta.subscribe" : "paywall.cta.subscribe_plain"))
                 }
             }
-            .buttonStyle(FTPrimaryCapsuleStyle(isEnabled: model.selectedProduct != nil))
-            .disabled(model.selectedProduct == nil || model.isBusy)
-            if let lifetime = model.lifetime {
+            .buttonStyle(FTPrimaryCapsuleStyle(isEnabled: model.selectedProduct != nil || isSeeded))
+            .disabled((model.selectedProduct == nil && !isSeeded) || model.isBusy)
+            if isSeeded {
+                Text(String(ftKey: "paywall.plan.lifetime.link", "$49.99"))
+                    .font(.footnote.monospaced())
+                    .foregroundStyle(Color.ftTextSecondary)
+                    .frame(minHeight: 44)
+            } else if let lifetime = model.lifetime {
                 Button { Task { await model.purchase(lifetime) } } label: {
                     Text(String(ftKey: "paywall.plan.lifetime.link", lifetime.displayPrice))
                         .font(.footnote.monospaced())

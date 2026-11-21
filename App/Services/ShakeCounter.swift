@@ -28,6 +28,13 @@ final class ShakeCounter {
     var isComplete: Bool { shakes >= Self.target }
 
     func start() {
+        #if DEBUG
+        if UITestSeed.isActive {   // simulator has no motion sensor; show a mid-challenge state
+            shakes = UITestSeed.fakeShakes
+            status = .running
+            return
+        }
+        #endif
         guard motion.isDeviceMotionAvailable else {
             status = .unavailable
             Log.app.error("Device motion unavailable")

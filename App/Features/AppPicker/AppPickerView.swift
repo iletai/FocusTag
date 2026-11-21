@@ -16,7 +16,10 @@ struct AppPickerView: View {
     @State private var didLoad = false
 
     private var selectedCount: Int {
-        selection.applicationTokens.count + selection.categoryTokens.count + selection.webDomainTokens.count
+        #if DEBUG
+        if UITestSeed.isActive { return UITestSeed.fakeSelectedCount }
+        #endif
+        return selection.applicationTokens.count + selection.categoryTokens.count + selection.webDomainTokens.count
     }
 
     var body: some View {
@@ -56,7 +59,7 @@ struct AppPickerView: View {
             Text(String(ftKey: "blocklist.selected.count", selectedCount))
                 .font(.footnote.weight(.medium).monospaced())
                 .foregroundStyle(Color.ftTextSecondary)
-            FamilyActivityPicker(selection: $selection)
+            picker
                 .clipShape(.rect(cornerRadius: 24))
                 .frame(maxHeight: .infinity)
             Toggle(isOn: $isStrict) {
@@ -73,6 +76,15 @@ struct AppPickerView: View {
             .padding(16)
             .ftCardSurface()
         }
+    }
+
+    @ViewBuilder
+    private var picker: some View {
+        #if DEBUG
+        if UITestSeed.isActive { UITestSeed.FakeActivityPicker() } else { FamilyActivityPicker(selection: $selection) }
+        #else
+        FamilyActivityPicker(selection: $selection)
+        #endif
     }
 
     private var deniedCard: some View {
@@ -125,6 +137,9 @@ struct AppPickerView: View {
     }
 
     private func authorize() async {
+        #if DEBUG
+        if UITestSeed.isActive { access = .granted; return }
+        #endif
         let center = AuthorizationCenter.shared
         guard center.authorizationStatus != .approved else {
             access = .granted

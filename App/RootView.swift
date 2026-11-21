@@ -15,5 +15,8 @@ struct RootView: View {
             cover: { AppCoverView(cover: $0) }
         )
         .environment(shield)
+        #if DEBUG
+        .task { await UITestSeed.apply(shield: shield, router: router) }
+        #endif
     }
 }
