@@ -106,13 +106,13 @@ extension Color {
 
 extension Animation {
     /// Snappy tactile snap for button presses, card taps, and toggle flips
-    static let ftTactileSnap = Animation.spring(response: 0.28, dampingRatio: 0.72)
+    static let ftTactileSnap = Animation.spring(response: 0.28, dampingFraction: 0.72)
 
     /// Sheet and screen entry transition spring
-    static let ftSheetSpring = Animation.spring(response: 0.38, dampingRatio: 0.82)
+    static let ftSheetSpring = Animation.spring(response: 0.38, dampingFraction: 0.82)
 
     /// Shake bounce counter recoil
-    static let ftRecoilSpring = Animation.spring(response: 0.22, dampingRatio: 0.55)
+    static let ftRecoilSpring = Animation.spring(response: 0.22, dampingFraction: 0.55)
 
     /// Gentle breathing glow for active shield
     static let ftBreathingGlow = Animation.easeInOut(duration: 2.4).repeatForever(autoreverses: true)

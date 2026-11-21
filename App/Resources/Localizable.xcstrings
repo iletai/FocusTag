@@ -86,6 +86,23 @@
         }
       }
     },
+    "blocklist.empty.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select at least 1 app or category to arm the shield."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn ít nhất 1 ứng dụng hoặc danh mục để bật khiên."
+          }
+        }
+      }
+    },
     "blocklist.permission.denied.desc" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -133,6 +150,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mở Cài đặt iOS"
+          }
+        }
+      }
+    },
+    "blocklist.selected.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Apps Selected"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã chọn %lld ứng dụng"
           }
         }
       }
@@ -409,6 +443,23 @@
         }
       }
     },
+    "dashboard.cta.rearm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arm Shield"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bật khiên"
+          }
+        }
+      }
+    },
     "dashboard.cta.scan_nfc" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -494,6 +545,23 @@
         }
       }
     },
+    "dashboard.timer.relock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Until the shield re-arms"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đến khi khiên bật lại"
+          }
+        }
+      }
+    },
     "dashboard.timer.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -545,6 +613,23 @@
         }
       }
     },
+    "emergency.calibrating" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrating motion sensor..."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang hiệu chỉnh cảm biến chuyển động..."
+          }
+        }
+      }
+    },
     "emergency.counter.label" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -575,6 +660,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vẫn giữ khóa (Tôi không cần nữa)"
+          }
+        }
+      }
+    },
+    "emergency.error.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motion sensor unavailable. The emergency unlock cannot be verified."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không có cảm biến chuyển động. Không thể xác thực mở khóa khẩn cấp."
+          }
+        }
+      }
+    },
+    "emergency.milestone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halfway there! Are you sure you really need this app right now?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đi được nửa đường rồi! Bạn có thật sự cần ứng dụng này ngay lúc này?"
           }
         }
       }
@@ -647,6 +766,40 @@
         }
       }
     },
+    "nfc.scan.prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold your iPhone near your NFC tag."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giữ iPhone gần thẻ NFC của bạn."
+          }
+        }
+      }
+    },
+    "nfc_pairing.cta.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done & Arm Shield"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xong & Bật khiên"
+          }
+        }
+      }
+    },
     "nfc_pairing.cta.start" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -660,6 +813,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bắt đầu quét thẻ NFC"
+          }
+        }
+      }
+    },
+    "nfc_pairing.current" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current key: %@"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chìa khóa hiện tại: %@"
+          }
+        }
+      }
+    },
+    "nfc_pairing.error.duplicate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This tag is already your key. Scan a different tag or close."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thẻ này đã là chìa khóa của bạn. Hãy quét thẻ khác hoặc đóng."
+          }
+        }
+      }
+    },
+    "nfc_pairing.error.timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanning timed out. Bring your phone closer to the tag and try again."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hết thời gian quét. Hãy đưa điện thoại lại gần thẻ hơn và thử lại."
+          }
+        }
+      }
+    },
+    "nfc_pairing.error.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC is not available on this device."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thiết bị này không hỗ trợ NFC."
           }
         }
       }
@@ -868,6 +1089,74 @@
         }
       }
     },
+    "paywall.cta.subscribe_plain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng ký"
+          }
+        }
+      }
+    },
+    "paywall.error.offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Internet required to connect to App Store. Connect to Wi-Fi to activate free trial."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cần kết nối Internet để dùng App Store. Hãy kết nối Wi-Fi để kích hoạt dùng thử miễn phí."
+          }
+        }
+      }
+    },
+    "paywall.error.payment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Payment could not be completed. Please update your App Store payment method."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể hoàn tất thanh toán. Vui lòng cập nhật phương thức thanh toán App Store."
+          }
+        }
+      }
+    },
+    "paywall.error.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans are unavailable right now. Please try again."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiện chưa tải được các gói. Vui lòng thử lại."
+          }
+        }
+      }
+    },
     "paywall.feature.nfc_lock" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1000,6 +1289,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3 ngày dùng thử miễn phí, sau đó %@/năm (%@/tháng)"
+          }
+        }
+      }
+    },
+    "paywall.plan.annual.desc_no_trial" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/year (%@/mo)"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/năm (%@/tháng)"
           }
         }
       }

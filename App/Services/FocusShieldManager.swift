@@ -1,9 +1,7 @@
 import Foundation
 import SwiftUI
 
-#if canImport(FamilyControls)
 import FamilyControls
-#endif
 #if canImport(ManagedSettings)
 import ManagedSettings
 #endif
@@ -19,7 +17,8 @@ public final class FocusShieldManager {
     public var focusStartTime: Date?
     public var elapsedSeconds: TimeInterval = 0
     public var pairedTag: PairedTag?
-    public var blockedAppsCount: Int = 4
+    public var activitySelection = FamilyActivitySelection()
+    public var blockedAppsCount: Int = 0
     public var isStrictMode: Bool = false
     public var isEmergencyActive: Bool = false
     public var emergencyExpiresAt: Date?
@@ -38,10 +37,13 @@ public final class FocusShieldManager {
     private let kPairedTag = "FocusTag.pairedTag"
     private let kBlockedAppsCount = "FocusTag.blockedAppsCount"
     private let kStrictMode = "FocusTag.isStrictMode"
+    private let kActivitySelection = "FocusTag.activitySelection"
+    private let defaults: UserDefaults
 
     // MARK: - Initializer
 
-    public init() {
+    public init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
         loadPersistedState()
         startTimerLoop()
     }
@@ -71,41 +73,33 @@ public final class FocusShieldManager {
     // MARK: - State Persistence
 
     private func loadPersistedState() {
-        let defaults = UserDefaults.standard
-        if defaults.object(forKey: kShieldActive) != nil {
-            isShieldActive = defaults.bool(forKey: kShieldActive)
-        } else {
-            // Default to active on first launch if configured
-            isShieldActive = true
-        }
+        isShieldActive = defaults.bool(forKey: kShieldActive)
 
         if let savedStart = defaults.object(forKey: kStartTime) as? Date {
             focusStartTime = savedStart
             elapsedSeconds = max(0, Date().timeIntervalSince(savedStart))
-        } else if isShieldActive {
-            let now = Date().addingTimeInterval(-6300) // Default ~01:45 for realistic active shield preview
-            focusStartTime = now
-            elapsedSeconds = 6300
         }
 
-        blockedAppsCount = defaults.object(forKey: kBlockedAppsCount) as? Int ?? 4
+        blockedAppsCount = defaults.object(forKey: kBlockedAppsCount) as? Int ?? 0
         isStrictMode = defaults.bool(forKey: kStrictMode)
 
         if let data = defaults.data(forKey: kPairedTag),
            let tag = try? JSONDecoder().decode(PairedTag.self, from: data) {
             pairedTag = tag
-        } else {
-            // Default sample paired tag for initial state
-            pairedTag = PairedTag(name: "Kitchen Fridge Tag", tagIdentifier: "TAG-SAMPLE-01")
+        }
+
+        if let data = defaults.data(forKey: kActivitySelection),
+           let selection = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            activitySelection = selection
         }
     }
 
     private func persistState() {
-        let defaults = UserDefaults.standard
         defaults.set(isShieldActive, forKey: kShieldActive)
         defaults.set(focusStartTime, forKey: kStartTime)
         defaults.set(blockedAppsCount, forKey: kBlockedAppsCount)
         defaults.set(isStrictMode, forKey: kStrictMode)
+        defaults.set(try? JSONEncoder().encode(activitySelection), forKey: kActivitySelection)
 
         if let tag = pairedTag, let data = try? JSONEncoder().encode(tag) {
             defaults.set(data, forKey: kPairedTag)
@@ -163,7 +157,7 @@ public final class FocusShieldManager {
             return true
         }
 
-        if identifier.caseInsensitiveCompare(expected) == .orderedSame || identifier == "TAG-SAMPLE-01" {
+        if identifier.caseInsensitiveCompare(expected) == .orderedSame {
             isShieldActive = false
             isEmergencyActive = false
             emergencyExpiresAt = nil
@@ -194,10 +188,14 @@ public final class FocusShieldManager {
         persistState()
     }
 
-    public func updateBlockedSettings(count: Int, strict: Bool) {
+    public func updateBlockedSettings(selection: FamilyActivitySelection, strict: Bool) {
+        activitySelection = selection
+        let count = selection.applicationTokens.count + selection.categoryTokens.count + selection.webDomainTokens.count
         blockedAppsCount = count
         isStrictMode = strict
-        if count > 0 && !isShieldActive && !isEmergencyActive {
+        if count == 0 {
+            isShieldActive = false
+        } else if !isShieldActive && !isEmergencyActive {
             isShieldActive = true
             focusStartTime = Date()
             elapsedSeconds = 0

@@ -4,14 +4,16 @@ import SwiftUI
 /// One router per navigation stack; screens read it with `@Environment(AppRouter.self)`.
 struct RootView: View {
     @State private var router = AppRouter()
+    @State private var shield = FocusShieldManager.shared
 
     var body: some View {
         BaseNavigationContainer(
             router: router,
-            content: { ContentView() },
+            content: { DashboardView() },
             destination: { AppRouteView(route: $0) },
             sheet: { AppSheetView(sheet: $0) },
-            cover: { _ in EmptyView() }
+            cover: { AppCoverView(cover: $0) }
         )
+        .environment(shield)
     }
 }

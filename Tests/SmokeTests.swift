@@ -2,7 +2,7 @@ import Testing
 @testable import FocusTag
 
 struct SmokeTests {
-    @Test func appLaunchesContentView() {
-        _ = ContentView()
+    @Test func appLaunchesDashboard() {
+        _ = DashboardView()
     }
 }
