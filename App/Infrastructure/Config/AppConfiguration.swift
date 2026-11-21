@@ -19,6 +19,11 @@ enum AppConfiguration {
     /// nil until `APP_STORE_URL` is set in Config/Backend-Prod.xcconfig (always nil in Dev).
     static var appStoreURL: URL? { string("APP_STORE_URL").flatMap(URL.init(string:)) }
 
+    /// Legal links shown on the paywall (App Store guideline 3.1.2); identical in every environment, so not in xcconfig.
+    static let privacyPolicyURL = URL(string: "https://apps-site-six.vercel.app/apps/focustag/privacy")!
+    /// Apple's standard EULA, referenced in App Store Connect as the license agreement.
+    static let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+
     /// Custom Info.plist key; nil when missing or empty (unset xcconfig variables expand to "").
     static func string(_ key: String) -> String? {
         guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String, !value.isEmpty else { return nil }

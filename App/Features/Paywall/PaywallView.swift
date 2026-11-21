@@ -163,6 +163,13 @@ struct PaywallView: View {
                 .font(.caption2)
                 .foregroundStyle(Color.ftTextTertiary)
                 .multilineTextAlignment(.center)
+            HStack(spacing: 24) {
+                Link("paywall.legal.terms", destination: AppConfiguration.termsOfUseURL)
+                Link("paywall.legal.privacy", destination: AppConfiguration.privacyPolicyURL)
+            }
+            .font(.caption2.weight(.medium))
+            .foregroundStyle(Color.ftTextSecondary)
+            .frame(minHeight: 44)
         }
     }
 }

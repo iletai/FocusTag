@@ -1231,13 +1231,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Subscription automatically renews unless canceled in App Store Settings at least 24h before trial ends. Terms of Service & Privacy Policy."
+            "value" : "Subscription automatically renews unless canceled in App Store Settings at least 24h before trial ends."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Đăng ký tự động gia hạn trừ khi hủy trong Cài đặt App Store ít nhất 24h trước khi hết hạn dùng thử. Điều khoản dịch vụ & Chính sách bảo mật."
+            "value" : "Đăng ký tự động gia hạn trừ khi hủy trong Cài đặt App Store ít nhất 24h trước khi hết hạn dùng thử."
           }
         }
       }
@@ -1255,6 +1255,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lấy lại 3.5 giờ mỗi ngày"
+          }
+        }
+      }
+    },
+    "paywall.legal.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chính sách bảo mật"
+          }
+        }
+      }
+    },
+    "paywall.legal.terms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Điều khoản sử dụng"
           }
         }
       }
