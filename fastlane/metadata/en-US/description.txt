@@ -1,0 +1,16 @@
+FocusTag turns physical friction into your superpower against doomscrolling.
+
+Standard screen time limiters are broken: when dopamine cravings hit, your thumbs instinctively tap "Ignore Limit for 15 Minutes". FocusTag ends this cycle by requiring physical reality to unlock your distracting apps.
+
+HOW IT WORKS:
+1. Select your most addictive apps (TikTok, Instagram, YouTube, Games, Safari).
+2. Pair any household NFC item: an elevator card, transit pass, or a $0.50 NFC sticker placed outside your bedroom or across the room.
+3. When the shield is active, the ONLY way to unlock your apps is to stand up and tap that physical tag.
+
+FEATURES:
+- Unbreakable physical habit lock: Stop bypassing software limits.
+- 100% Private & On-Device: Powered by Apple Screen Time & CoreNFC APIs. Zero server tracking, zero accounts needed.
+- Emergency Shake Unlock: Away from your tag? Complete a 100-shake physical challenge for a brief 5-minute unlock.
+- Battery-Friendly & Native: Crafted with pure SwiftUI for seamless iOS integration.
+
+Reclaim an average of 3.5 hours every day. Put the phone down and regain your deep focus with FocusTag.

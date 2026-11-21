@@ -1,0 +1,14 @@
+FocusTag sử dụng ma sát vật lý để giúp bạn triệt để từ bỏ thói quen vô thức lướt điện thoại thâu đêm.
+
+Các ứng dụng giới hạn thời gian thông thường quá dễ bị bỏ qua: ngón tay bạn chỉ cần bấm "Bỏ qua giới hạn trong 15 phút". FocusTag giải quyết vấn đề này bằng cách buộc bạn phải dùng thẻ NFC vật lý để mở khóa.
+
+CƠ CHẾ HOẠT ĐỘNG:
+1. Chọn các ứng dụng gây xao nhãng (TikTok, Facebook, Instagram, Game).
+2. Quét bất kỳ thẻ NFC nào có sẵn trong nhà: thẻ xe bus, thẻ thang máy, hoặc nhãn dán NFC dán ngoài phòng khách.
+3. Khi khiên bảo vệ được bật, cách duy nhất để mở app là đứng dậy và chạm điện thoại vào thẻ vật lý.
+
+TÍNH NĂNG NỔI BẬT:
+- Khóa bằng ma sát vật lý: Không thể lừa dối bằng mật khẩu thông thường.
+- 100% Riêng tư: Chạy hoàn toàn trên máy qua Apple Screen Time & CoreNFC, không gửi dữ liệu ra máy chủ.
+- Mở khóa khẩn cấp: Lắc điện thoại 100 lần để mở khóa tạm thời 5 phút khi ở xa thẻ.
+- Nhẹ nhàng, không tốn pin, giao diện tối giản chuẩn Apple HIG.
