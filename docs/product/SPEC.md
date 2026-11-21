@@ -48,7 +48,7 @@
 ### Screen 5: Hard Paywall (Monetization Engine)
 * **Mục đích:** Kích hoạt đăng ký trả phí ngay sau Onboarding hoặc khi người dùng cấu hình xong thẻ NFC.
 * **Thành phần UI:**
-  * Social Proof & Value Hook: "Lấy lại trung bình 3.5 giờ mỗi ngày khỏi mạng xã hội".
+  * Social Proof & Value Hook: "Lấy lại sự tập trung".
   * Feature Comparison Checklist:
     * Khóa không thể bỏ qua bằng mật khẩu.
     * Ghép nối không giới hạn thẻ NFC.

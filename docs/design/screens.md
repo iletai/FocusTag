@@ -216,7 +216,7 @@
 +-------------------------------------------------------------+  ▼
 | [ (x) Close (44pt Glass Circle) ]     [ Restore Purchases ] |  44pt Nav Bar Region
 +-------------------------------------------------------------+
-| "Reclaim 3.5 Hours Every Day"                               |  Display Lg (34pt Bold)
+| "Take back your focus"                                      |  Display Lg (34pt Bold)
 | "The only screen time blocker you cannot bypass in bed."    |  Body Md (15pt Slate)
 |                                                             |
 | +---------------------------------------------------------+ |

@@ -94,7 +94,7 @@
 
 | Key | English (`en`) | Vietnamese (`vi`) | Comment / Context |
 | :--- | :--- | :--- | :--- |
-| `paywall.headline` | Reclaim 3.5 Hours Every Day | Lấy lại 3.5 giờ mỗi ngày | Hero value proposition |
+| `paywall.headline` | Take back your focus | Lấy lại sự tập trung | Hero value proposition |
 | `paywall.subheadline` | The physical habit blocker you cannot bypass from bed. | Ứng dụng chặn thói quen bằng vật lý mà bạn không thể bỏ qua trên giường. | Hero subheadline |
 | `paywall.feature.nfc_lock` | Unbreakable physical NFC lock | Khóa vật lý NFC không thể phá vỡ | Feature checklist item 1 |
 | `paywall.feature.unlimited_tags`| Unlimited physical NFC tag pairings | Ghép nối không giới hạn thẻ NFC | Feature checklist item 2 |
