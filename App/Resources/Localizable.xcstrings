@@ -1163,13 +1163,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unbreakable physical NFC lock"
+            "value" : "Unlock with your own NFC tag"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Khóa vật lý NFC không thể phá vỡ"
+            "value" : "Mở khóa bằng thẻ NFC của riêng bạn"
           }
         }
       }
@@ -1180,13 +1180,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100% On-device privacy, zero tracking"
+            "value" : "Your NFC tag and app choices stay on your device"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100% riêng tư trên máy, không theo dõi"
+            "value" : "Thẻ NFC và lựa chọn ứng dụng của bạn luôn nằm trên thiết bị"
           }
         }
       }
@@ -1299,13 +1299,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BEST VALUE — 88% OFF"
+            "value" : "BEST VALUE"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TIẾT KIỆM NHẤT — GIẢM 88%"
+            "value" : "TIẾT KIỆM NHẤT"
           }
         }
       }
@@ -1418,13 +1418,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The physical habit blocker you cannot bypass from bed."
+            "value" : "Block distracting apps until you tap your NFC tag."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ứng dụng chặn thói quen bằng vật lý mà bạn không thể bỏ qua trên giường."
+            "value" : "Chặn các ứng dụng gây xao nhãng cho đến khi bạn chạm thẻ NFC."
           }
         }
       }

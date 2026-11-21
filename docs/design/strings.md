@@ -95,12 +95,12 @@
 | Key | English (`en`) | Vietnamese (`vi`) | Comment / Context |
 | :--- | :--- | :--- | :--- |
 | `paywall.headline` | Take back your focus | Lấy lại sự tập trung | Hero value proposition |
-| `paywall.subheadline` | The physical habit blocker you cannot bypass from bed. | Ứng dụng chặn thói quen bằng vật lý mà bạn không thể bỏ qua trên giường. | Hero subheadline |
-| `paywall.feature.nfc_lock` | Unbreakable physical NFC lock | Khóa vật lý NFC không thể phá vỡ | Feature checklist item 1 |
+| `paywall.subheadline` | Block distracting apps until you tap your NFC tag. | Chặn các ứng dụng gây xao nhãng cho đến khi bạn chạm thẻ NFC. | Hero subheadline |
+| `paywall.feature.nfc_lock` | Unlock with your own NFC tag | Mở khóa bằng thẻ NFC của riêng bạn | Feature checklist item 1 |
 | `paywall.feature.unlimited_tags`| Unlimited physical NFC tag pairings | Ghép nối không giới hạn thẻ NFC | Feature checklist item 2 |
 | `paywall.feature.strict_mode`| Strict anti-bypass protection | Bảo vệ nghiêm ngặt chống gỡ cài đặt | Feature checklist item 3 |
-| `paywall.feature.privacy` | 100% On-device privacy, zero tracking | 100% riêng tư trên máy, không theo dõi | Feature checklist item 4 |
-| `paywall.plan.annual.badge` | BEST VALUE — 88% OFF | TIẾT KIỆM NHẤT — GIẢM 88% | Plan A top highlight badge |
+| `paywall.feature.privacy` | Your NFC tag and app choices stay on your device | Thẻ NFC và lựa chọn ứng dụng của bạn luôn nằm trên thiết bị | Feature checklist item 4 |
+| `paywall.plan.annual.badge` | BEST VALUE | TIẾT KIỆM NHẤT | Plan A top highlight badge |
 | `paywall.plan.annual.title` | Annual Access | Gói Hàng Năm | Plan A title |
 | `paywall.plan.annual.desc` | 3-Day Free Trial, then %@/year (%@/mo) | 3 ngày dùng thử miễn phí, sau đó %@/năm (%@/tháng) | Plan A description |
 | `paywall.plan.weekly.title` | Weekly Access | Gói Hàng Tuần | Plan B title |
