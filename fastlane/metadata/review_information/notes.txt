@@ -1,1 +1,7 @@
-Explain anything the reviewer needs: demo account, sample data, sandbox purchase steps.
+FocusTag blocks selected apps with Apple's Screen Time API (FamilyControls) and unlocks them with a physical NFC tag.
+How to test:
+1. Open the app, allow Screen Time access, pick apps under Select Apps, and start a shield from the Dashboard.
+2. NFC pairing and unlock need an NFC tag (any NFC sticker or card). The app reads the tag identifier with CoreNFC. Pairing is under the NFC pairing sheet on the Dashboard.
+3. Without a tag, use Emergency Unlock: shake the device 100 times (CoreMotion) for a 5-minute unlock.
+4. Subscriptions (Pro Weekly, Pro Annual with a 3-day free trial, Pro Lifetime) are sold through StoreKit. Restore Purchases is on the paywall.
+No account or login is required.

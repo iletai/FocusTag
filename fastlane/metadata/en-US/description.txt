@@ -13,4 +13,9 @@ FEATURES:
 - Emergency Shake Unlock: Away from your tag? Complete a 100-shake physical challenge for a brief 5-minute unlock.
 - Battery-Friendly & Native: Crafted with pure SwiftUI for seamless iOS integration.
 
-Reclaim an average of 3.5 hours every day. Put the phone down and regain your deep focus with FocusTag.
+Put the phone down and regain your deep focus with FocusTag.
+
+Subscriptions renew automatically unless cancelled at least 24 hours before the period ends. Manage them in your Apple ID settings.
+
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Privacy Policy: https://apps-site-six.vercel.app/apps/focustag/privacy

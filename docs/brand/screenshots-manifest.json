@@ -1,50 +1,42 @@
 [
   {
-    "screenshot": "raw/01-home.png",
-    "title": "Transform Your Sleep",
-    "subtitle": "AI-powered sleep experiments",
+    "screenshot": "raw/01-dashboard.png",
+    "title": "Your Focus, Locked In",
+    "subtitle": "Shield the apps that steal your time",
     "gradient": "purple-night",
     "device": "iphone-17-pro",
-    "filename": "01-home.png"
+    "filename": "01-dashboard.png"
   },
   {
-    "screenshot": "raw/02-stats.png",
-    "title": "Deep Insights",
-    "subtitle": "Understand your sleep patterns",
+    "screenshot": "raw/02-app-picker.png",
+    "title": "Pick Your Distractions",
+    "subtitle": "Choose the apps to block",
     "gradient": "teal-ocean",
     "device": "iphone-17-pro",
-    "filename": "02-stats.png"
+    "filename": "02-app-picker.png"
   },
   {
-    "screenshot": "raw/03-detail.png",
-    "title": "Every Detail Matters",
-    "subtitle": "Hour-by-hour breakdown",
+    "screenshot": "raw/03-nfc-pairing.png",
+    "title": "Pair Any NFC Tag",
+    "subtitle": "A sticker, card or transit pass",
     "gradient": "rose-gold",
     "device": "iphone-17-pro",
-    "filename": "03-detail.png"
+    "filename": "03-nfc-pairing.png"
   },
   {
-    "screenshot": "raw/04-settings.png",
-    "title": "Your Preferences",
-    "subtitle": "Personalized for you",
+    "screenshot": "raw/04-emergency-unlock.png",
+    "title": "Emergency Unlock",
+    "subtitle": "100 shakes for a 5-minute exit",
     "gradient": "morning-sky",
     "device": "iphone-17-pro",
-    "filename": "04-settings.png"
+    "filename": "04-emergency-unlock.png"
   },
   {
-    "screenshot": "raw/05-onboarding.png",
-    "title": "Get Started in Seconds",
-    "subtitle": "No setup required",
-    "gradient": "coral-burst",
-    "device": "iphone-17-pro",
-    "filename": "05-onboarding.png"
-  },
-  {
-    "screenshot": "raw/06-paywall.png",
-    "title": "Unlock Everything",
-    "subtitle": "Premium features await",
+    "screenshot": "raw/05-paywall.png",
+    "title": "Unlock Pro",
+    "subtitle": "Weekly, Annual or Lifetime access",
     "gradient": "deep-space",
     "device": "iphone-17-pro",
-    "filename": "06-paywall.png"
+    "filename": "05-paywall.png"
   }
 ]

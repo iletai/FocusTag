@@ -12,3 +12,8 @@ TÍNH NĂNG NỔI BẬT:
 - 100% Riêng tư: Chạy hoàn toàn trên máy qua Apple Screen Time & CoreNFC, không gửi dữ liệu ra máy chủ.
 - Mở khóa khẩn cấp: Lắc điện thoại 100 lần để mở khóa tạm thời 5 phút khi ở xa thẻ.
 - Nhẹ nhàng, không tốn pin, giao diện tối giản chuẩn Apple HIG.
+
+Gói đăng ký tự động gia hạn trừ khi bạn hủy trước ít nhất 24 giờ khi kỳ hiện tại kết thúc. Quản lý trong cài đặt Apple ID.
+
+Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Chính sách bảo mật: https://apps-site-six.vercel.app/apps/focustag/privacy
