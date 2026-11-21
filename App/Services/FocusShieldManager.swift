@@ -2,9 +2,6 @@ import Foundation
 import SwiftUI
 
 import FamilyControls
-#if canImport(ManagedSettings)
-import ManagedSettings
-#endif
 
 @Observable
 @MainActor
@@ -29,6 +26,9 @@ public final class FocusShieldManager {
     public var triggerErrorHaptic: Bool = false
 
     private var timer: Timer?
+    private let shieldStore: any ShieldStore
+    /// Injectable so tests can move time without waiting.
+    private let now: () -> Date
 
     // MARK: - Storage Keys
 
@@ -38,12 +38,19 @@ public final class FocusShieldManager {
     private let kBlockedAppsCount = "FocusTag.blockedAppsCount"
     private let kStrictMode = "FocusTag.isStrictMode"
     private let kActivitySelection = "FocusTag.activitySelection"
+    private let kEmergencyExpires = "FocusTag.emergencyExpiresAt"
     private let defaults: UserDefaults
 
     // MARK: - Initializer
 
-    public init(defaults: UserDefaults = .standard) {
+    init(
+        defaults: UserDefaults = .standard,
+        shieldStore: any ShieldStore = ManagedSettingsShieldStore(),
+        now: @escaping () -> Date = Date.init
+    ) {
         self.defaults = defaults
+        self.shieldStore = shieldStore
+        self.now = now
         loadPersistedState()
         startTimerLoop()
     }
@@ -52,7 +59,7 @@ public final class FocusShieldManager {
 
     public var formattedTimer: String {
         if isEmergencyActive, let expires = emergencyExpiresAt {
-            let remaining = max(0, Int(expires.timeIntervalSinceNow))
+            let remaining = max(0, Int(expires.timeIntervalSince(now())))
             let minutes = remaining / 60
             let seconds = remaining % 60
             return String(format: "%02d:%02d", minutes, seconds)
@@ -77,7 +84,7 @@ public final class FocusShieldManager {
 
         if let savedStart = defaults.object(forKey: kStartTime) as? Date {
             focusStartTime = savedStart
-            elapsedSeconds = max(0, Date().timeIntervalSince(savedStart))
+            elapsedSeconds = max(0, now().timeIntervalSince(savedStart))
         }
 
         blockedAppsCount = defaults.object(forKey: kBlockedAppsCount) as? Int ?? 0
@@ -92,6 +99,13 @@ public final class FocusShieldManager {
            let selection = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
             activitySelection = selection
         }
+
+        if let expires = defaults.object(forKey: kEmergencyExpires) as? Date {
+            isEmergencyActive = true
+            emergencyExpiresAt = expires
+        }
+        checkExpiry()
+        applyShield()
     }
 
     private func persistState() {
@@ -100,12 +114,33 @@ public final class FocusShieldManager {
         defaults.set(blockedAppsCount, forKey: kBlockedAppsCount)
         defaults.set(isStrictMode, forKey: kStrictMode)
         defaults.set(try? JSONEncoder().encode(activitySelection), forKey: kActivitySelection)
+        defaults.set(isEmergencyActive ? emergencyExpiresAt : nil, forKey: kEmergencyExpires)
 
         if let tag = pairedTag, let data = try? JSONEncoder().encode(tag) {
             defaults.set(data, forKey: kPairedTag)
         } else {
             defaults.removeObject(forKey: kPairedTag)
         }
+    }
+
+    /// Persists the state and pushes it to the system shield; call after every state change.
+    private func commit() {
+        persistState()
+        applyShield()
+    }
+
+    private func applyShield() {
+        if isShieldActive && !isEmergencyActive {
+            shieldStore.apply(activitySelection)
+        } else {
+            shieldStore.clear()
+        }
+    }
+
+    /// Relocks when the emergency window has passed; also runs on launch and when the app becomes active.
+    public func checkExpiry() {
+        guard isEmergencyActive, let expires = emergencyExpiresAt, now() >= expires else { return }
+        relockShield()
     }
 
     // MARK: - Timer
@@ -121,20 +156,12 @@ public final class FocusShieldManager {
 
     private func tick() {
         if isEmergencyActive {
-            if let expires = emergencyExpiresAt, Date() >= expires {
-                // Emergency period expired, re-lock!
-                isEmergencyActive = false
-                emergencyExpiresAt = nil
-                isShieldActive = true
-                focusStartTime = Date()
-                elapsedSeconds = 0
-                persistState()
-            }
+            checkExpiry()
         } else if isShieldActive {
             if let start = focusStartTime {
-                elapsedSeconds = Date().timeIntervalSince(start)
+                elapsedSeconds = now().timeIntervalSince(start)
             } else {
-                focusStartTime = Date()
+                focusStartTime = now()
                 elapsedSeconds = 0
             }
         }
@@ -149,20 +176,15 @@ public final class FocusShieldManager {
     }
 
     public func unlockWithNFC(identifier: String) -> Bool {
-        guard let expected = pairedTag?.tagIdentifier else {
-            // If no tag is configured yet, accept any tag and pair it
-            isShieldActive = false
-            triggerUnlockHaptic.toggle()
-            persistState()
-            return true
-        }
+        // No registered key means nothing to compare against: never unlock.
+        guard let expected = pairedTag?.tagIdentifier else { return false }
 
         if identifier.caseInsensitiveCompare(expected) == .orderedSame {
             isShieldActive = false
             isEmergencyActive = false
             emergencyExpiresAt = nil
             triggerUnlockHaptic.toggle()
-            persistState()
+            commit()
             return true
         } else {
             invalidTagAttemptName = pairedTag?.name ?? "Designated Tag"
@@ -175,17 +197,18 @@ public final class FocusShieldManager {
     public func unlockWithEmergencyShake() {
         isShieldActive = false
         isEmergencyActive = true
-        emergencyExpiresAt = Date().addingTimeInterval(300) // 5 minutes
+        emergencyExpiresAt = now().addingTimeInterval(300) // 5 minutes
         triggerUnlockHaptic.toggle()
+        commit()
     }
 
     public func relockShield() {
         isEmergencyActive = false
         emergencyExpiresAt = nil
         isShieldActive = true
-        focusStartTime = Date()
+        focusStartTime = now()
         elapsedSeconds = 0
-        persistState()
+        commit()
     }
 
     public func updateBlockedSettings(selection: FamilyActivitySelection, strict: Bool) {
@@ -197,9 +220,9 @@ public final class FocusShieldManager {
             isShieldActive = false
         } else if !isShieldActive && !isEmergencyActive {
             isShieldActive = true
-            focusStartTime = Date()
+            focusStartTime = now()
             elapsedSeconds = 0
         }
-        persistState()
+        commit()
     }
 }

@@ -30,6 +30,7 @@ struct FocusTagApp: App {
                 }
                 .onChange(of: scenePhase) { _, phase in
                     guard phase == .active else { return }
+                    FocusShieldManager.shared.checkExpiry()
                     Task {
                         await AppUpdateService.shared.check()   // oncePerSession throttles
                         updateAction = AppUpdateService.shared.action
