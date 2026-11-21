@@ -177,13 +177,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prevents deleting or uninstalling apps while shield is active."
+            "value" : "Saves your Strict Mode preference with this blocklist."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ngăn chặn việc gỡ cài đặt ứng dụng khi khiên đang bật."
+            "value" : "Lưu tùy chọn Chế độ nghiêm ngặt cùng danh sách chặn này."
           }
         }
       }
@@ -1197,13 +1197,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Strict anti-bypass protection"
+            "value" : "Strict Mode option for your blocklist"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bảo vệ nghiêm ngặt chống gỡ cài đặt"
+            "value" : "Tùy chọn Chế độ nghiêm ngặt cho danh sách chặn"
           }
         }
       }

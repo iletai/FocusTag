@@ -97,7 +97,7 @@
 | +---------------------------------------------------------+ |
 |                                                             |
 | +---------------------------------------------------------+ |
-| | Strict Mode (Prevent App Deletion)           [ Toggle ] | |  System Toggle Glass Card (r: 24pt)
+| | Strict Mode                                  [ Toggle ] | |  System Toggle Glass Card (r: 24pt)
 | +---------------------------------------------------------+ |
 |                                                             |
 | [               Save Blocklist Configuration              ] |  50pt Pinned Capsule CTA

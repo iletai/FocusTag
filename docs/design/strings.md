@@ -49,7 +49,7 @@
 | `blocklist.category.games` | Games | Trò chơi | Quick filter chip |
 | `blocklist.category.video` | Entertainment | Giải trí & Video | Quick filter chip |
 | `blocklist.strict_mode.title` | Strict Mode | Chế độ nghiêm ngặt | Toggle card title |
-| `blocklist.strict_mode.desc` | Prevents deleting or uninstalling apps while shield is active. | Ngăn chặn việc gỡ cài đặt ứng dụng khi khiên đang bật. | Toggle card description |
+| `blocklist.strict_mode.desc` | Saves your Strict Mode preference with this blocklist. | Lưu tùy chọn Chế độ nghiêm ngặt cùng danh sách chặn này. | Toggle card description |
 | `blocklist.cta.save` | Save Blocklist | Lưu danh sách khóa | 50pt Primary Capsule CTA |
 | `blocklist.permission.denied.title`| Screen Time Access Required | Cần cấp quyền Screen Time | Permission alert title |
 | `blocklist.permission.denied.desc` | Apple Screen Time permission is required to shield apps securely on your device. | Cần cấp quyền Screen Time của Apple để bảo vệ ứng dụng hoàn toàn trên thiết bị của bạn. | Permission alert description |
@@ -98,7 +98,7 @@
 | `paywall.subheadline` | Block distracting apps until you tap your NFC tag. | Chặn các ứng dụng gây xao nhãng cho đến khi bạn chạm thẻ NFC. | Hero subheadline |
 | `paywall.feature.nfc_lock` | Unlock with your own NFC tag | Mở khóa bằng thẻ NFC của riêng bạn | Feature checklist item 1 |
 | `paywall.feature.unlimited_tags`| Unlimited physical NFC tag pairings | Ghép nối không giới hạn thẻ NFC | Feature checklist item 2 |
-| `paywall.feature.strict_mode`| Strict anti-bypass protection | Bảo vệ nghiêm ngặt chống gỡ cài đặt | Feature checklist item 3 |
+| `paywall.feature.strict_mode`| Strict Mode option for your blocklist | Tùy chọn Chế độ nghiêm ngặt cho danh sách chặn | Feature checklist item 3 |
 | `paywall.feature.privacy` | Your NFC tag and app choices stay on your device | Thẻ NFC và lựa chọn ứng dụng của bạn luôn nằm trên thiết bị | Feature checklist item 4 |
 | `paywall.plan.annual.badge` | BEST VALUE | TIẾT KIỆM NHẤT | Plan A top highlight badge |
 | `paywall.plan.annual.title` | Annual Access | Gói Hàng Năm | Plan A title |
