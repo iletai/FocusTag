@@ -16,3 +16,14 @@ Stop doomscrolling with physical reality. Lock distracting apps and require a ph
 source .env.scaffold
 APPLE_TEAM_ID="$APPLE_TEAM_ID" ~/.agents/skills/ios-new-app/scripts/new_app.sh "$APP_NAME" "$BUNDLE_ID" ~/Developer/"$APP_NAME" --with "$FEATURES"
 ```
+
+---
+
+## License
+
+Copyright (c) 2026 Le Quang Trong Tai. All rights reserved.
+
+This repository is proprietary and source-available for viewing only.
+No permission is granted to use, copy, modify, distribute, or create
+derivative works from this code without prior written permission.
+See [LICENSE](LICENSE) for the full terms.
